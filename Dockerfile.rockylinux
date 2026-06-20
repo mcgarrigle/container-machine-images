@@ -2,7 +2,7 @@ FROM rockylinux/rockylinux:10
 
 ENV container container
 
-RUN dnf update -y && dnf install -y systemd
+RUN dnf update -y && dnf install -y systemd sudo
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
