@@ -2,7 +2,7 @@ FROM ubuntu:26.04
 
 ENV container container
 
-RUN apt update -y && apt upgrade -y && apt install -y systemd init
+RUN apt update -y && apt upgrade -y && apt install -y systemd init sudo
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
